@@ -23,17 +23,16 @@
 
 //closures Function along with its lexical scope bundeled together to form a closure
 
-// function x(){
-//     let a = 10;
-//     function y(){
-//         console.log(a)
-//     }
-//     return y;
-// }
-// var z=x();
-// // z();
+function x(){
+    let a = 10;
+    function y(){
+        console.log(a)
+    }
+    return y;
+}
+var inner=x()
+inner()
 
-// console.log(z)
 //..........................................
 
 
