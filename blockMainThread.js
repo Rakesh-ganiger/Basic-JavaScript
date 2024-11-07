@@ -116,13 +116,13 @@ const cart=["shirts","Pants","Kurtas"]
 
 
 //call apply bind
-function sayHello(){
-    return "Hello " + this.name;
-  }
+// function sayHello(){
+//     return "Hello " + this.name;
+//   }
           
-  var obj = {name: "Sandy"};
+//   var obj = {name: "Sandy"};
           
-  console.log(sayHello.call(obj))
+//   console.log(sayHello.call(obj))
 
 
   let obj1={
@@ -138,8 +138,81 @@ function sayHello(){
     firstName:"Rahul",
     lastname:"Ganiger"
 }
+Function.prototype.myCall=function (context={}, ...args){
+    if(typeof this !== "function"){
+        throw new Error("Its not collable")
+    }
+    context.fn=this;
+    context.fn(...args)
+    
+};
 
-  fullname.apply(obj2,["Belagavi","Karnataka"])
-  let full=fullname.bind(obj2,"Belagavi","Karnataka")
-  console.log(full)
-  full()
+Function.prototype.myBind=function (context={}, ...args){
+    if(typeof this !== "function"){
+        throw new Error("Its not collable")
+    }
+    context.fn=this;
+    return function(...newArgs){
+        return context.fn(...args, ...newArgs)
+    }
+    
+    
+};
+
+
+Function.prototype.myApply=function (context={}, args=[]){
+    if(typeof this !== "function"){
+        throw new Error("Its not collable")
+    }
+    if(!Array.isArray(args)){
+        throw new Error("Not array")
+    }
+    context.fn=this;
+    context.fn(...args)
+    
+};
+
+  const res=fullname.myBind(obj2,"Belagavi")
+  console.log(res("Karnataka"))
+
+
+  //currying
+
+//   function multifly(x,y){
+//     console.log(x*y)
+//   }
+
+//   let multi=multifly.bind(this,2)
+//   multi(3)
+
+
+//polyfill for map
+
+
+// Array.prototype.myMap=function(cb){
+//     let temp=[];
+//     for(let i=0;i<this.length;i++){
+//         temp.push(cb(this[i]))
+//     }
+//     return temp;
+// }
+
+// const nums=[1,2,3,4];
+// const res=nums.myMap((e)=>{
+//     return e*2;
+// })
+// console.log(res)
+
+
+// Array.prototype.myFilter=function(cb){
+//     let temp=[];
+//     for(let i=0;i<this.length;i++){
+//         if(cb(this[i])) temp.push(this[i])
+//     }
+// return temp;
+// }
+
+// const res1=nums.myFilter((e)=>{
+//     return e>2;
+// })
+// console.log(res1)
