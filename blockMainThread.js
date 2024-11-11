@@ -70,33 +70,33 @@ const cart=["shirts","Pants","Kurtas"]
 //     return showOrderSummary(paymentInfo)
 // })
 
-// const promise=createOrder(cart)
-// console.log(promise)
-// promise.then(function (orderId){
-//     console.log(orderId)
-// })
-// setTimeout(function (){console.log(promise)},6000)
+const promise=createOrder(cart)
+console.log(promise)
+promise.then(function (orderId){
+    console.log(orderId)
+})
+setTimeout(function (){console.log(promise)},6000)
 
-// function createOrder(){
-// const pr=new Promise(function (resolve,reject){
-//     if(!validator(cart)){
-//         const err=new Error("Invalid cart")
-//         reject(err)
-//     }
-//     const orderId="1234"
-//     if(orderId){setTimeout(function (){
-//         resolve(orderId)
-//     },5000)
+function createOrder(){
+const pr=new Promise(function (resolve,reject){
+    if(!validator(cart)){
+        const err=new Error("Invalid cart")
+        reject(err)
+    }
+    const orderId="1234"
+    if(orderId){setTimeout(function (){
+        resolve(orderId)
+    },5000)
         
-//     }
-// })
+    }
+})
 
-// return pr;
-// }
+return pr;
+}
 
-// function validator(cart){
-//     return true;
-// }
+function validator(cart){
+    return true;
+}
 
 
 
@@ -256,40 +256,40 @@ const cart=["shirts","Pants","Kurtas"]
 
 
 
-function memo(){
-    const cache={}
-    return function fibo(n){
-        if(n in cache){
-            return cache[n]
-        }
-        else if(n>=1){
-            return n;
-        }
-        else{
-            let res=fibo(n-1)+fibo(n-2);
-            cache[n]=res;
-            return res;
-        } 
-    }
-}
-var x=memo()
-console.log(x(5));
-// Output: 5
-function memo() {
-    const cache = {};
-    return function fiboSeries(n) {
-        if (n in cache) {
-            return cache[n];
-        }
-        if (n === 0) return [0];
-        if (n === 1) return [0, 1];
-        
-        let series = fiboSeries(n - 1);
-        series.push(series[n - 1] + series[n - 2]);
-        cache[n] = series;
-        return series;
-    };
-}
 
-const y = memo();
-console.log(y(5)); // Output: [0, 1, 1, 2, 3, 5]
+//     const cache={}
+//     return function fibo(n){
+//         if(n in cache){
+//             return cache[n]
+//         }
+//         else if(n>=1){
+//             return n;
+//         }
+//         else{
+//             let res=fibo(n-1)+fibo(n-2);
+//             cache[n]=res;
+//             return res;
+//         } 
+//     }
+// }
+// var x=memo()
+// console.log(x(5));
+// // Output: 5
+// function memo() {
+//     const cache = {};
+//     return function fiboSeries(n) {
+//         if (n in cache) {
+//             return cache[n];
+//         }
+//         if (n === 0) return [0];
+//         if (n === 1) return [0, 1];
+        
+//         let series = fiboSeries(n - 1);
+//         series.push(series[n - 1] + series[n - 2]);
+//         cache[n] = series;
+//         return series;function memo(){
+//     };
+// }
+
+// const y = memo();
+// console.log(y(5)); // Output: [0, 1, 1, 2, 3, 5]

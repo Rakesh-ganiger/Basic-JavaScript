@@ -23,15 +23,15 @@
 
 //closures Function along with its lexical scope bundeled together to form a closure
 
-function x(){
-    let a = 10;
-    function y(){
-        console.log(a)
-    }
-    return y;
-}
-var inner=x()
-inner()
+// function x(){
+//     let a = 10;
+//     function y(){
+//         console.log(a)
+//     }
+//     return y;
+// }
+// var inner=x()
+// inner()
 
 //..........................................
 
@@ -55,52 +55,52 @@ x()
 
 
 // // //closure examples
-function outest(c){
-    let a=7;
-function outer(b){
+// function outest(c){
+//     let a=7;
+// function outer(b){
     
-    function inner(){
-        console.log(a,b,c)
-    }
-    return inner;
+//     function inner(){
+//         console.log(a,b,c)
+//     }
+//     return inner;
    
-}
-return outer;
+// }
+// return outer;
 
-}
-var inner=outest("Namaste Js")("namaste node")
-inner()
+// }
+// var inner=outest("Namaste Js")("namaste node")
+// inner()
 
 
-// //closure examples
-function x(){
-    let a =13;
-    function y(){
-        console.log(a)
-    }
-    return y;
-}
-var z=x();
+// // //closure examples
+// function x(){
+//     let a =13;
+//     function y(){
+//         console.log(a)
+//     }
+//     return y;
+// }
+// var z=x();
 
-z()
-console.log(z)
+// z()
+// console.log(z)
  
 
 
-//data hiding using closure
-function x(){
-var count=0;
+// //data hiding using closure
+// function x(){
+// var count=0;
 
-this.increment=function(){
-    count++;
-    console.log(count)
-}
-this.decrement=function(){
-    count--;
-    console.log(count)
-}
+// this.increment=function(){
+//     count++;
+//     console.log(count)
+// }
+// this.decrement=function(){
+//     count--;
+//     console.log(count)
+// }
 
-}
-var counter1 =new x()
-counter1.increment()
-counter1.decrement()
+// }
+// var counter1 =new x()
+// counter1.increment()
+// counter1.decrement()

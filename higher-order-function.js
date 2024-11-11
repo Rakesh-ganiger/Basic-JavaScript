@@ -40,14 +40,14 @@ const person={
 
 }
 //shallow copy
-// const person1=Object.assign({},person)
+// const person2=Object.assign({},person)
 
-// const person1 = {...person}
+const person2 = {...person}
 
-// person1.name="Rahul";
-// person1.adress.city="Karnataka";
-// console.log(person)
-// console.log(person1)
+person2.name="Rahul";
+person2.adress.city="Karnataka";
+console.log(person)
+console.log(person1)
 
 
 //deep copy
